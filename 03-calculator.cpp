@@ -1,11 +1,19 @@
 #include <iostream>
 
-void printCalculation(float value1, float value2, char symbol) {
+float getValueFromUser()
+{
+    std::cout << "Enter a value: ";
+    float input{};
+    std::cin >> input;
 
+    return input;
+}
+
+void printCalculation(float value1, float value2, char symbol) {
     switch (symbol) {
     case '+':
         std::cout << "The result is: " << value1 + value2 << '\n';
-        return; 
+        return;
 
     case '-':
         std::cout << "The result is: " << value1 - value2 << '\n';
@@ -20,7 +28,6 @@ void printCalculation(float value1, float value2, char symbol) {
             std::cout << "Error: Division by zero!\n";
             return;
         }
-
         std::cout << "The result is: " << value1 / value2 << '\n';
         return;
 
@@ -32,11 +39,9 @@ void printCalculation(float value1, float value2, char symbol) {
 
 int main()
 {
-    float value1{}, value2{};
+    float value1{ getValueFromUser() };
+    float value2{ getValueFromUser() };
     char symbol;
-
-    std::cout << "Enter two values:\n";
-    std::cin >> value1 >> value2;
 
     std::cout << "Enter an operator:\n";
     std::cin >> symbol;
